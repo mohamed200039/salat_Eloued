@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مواقيت الصلاة - الوادي</title>
+
+    <!-- ===== الخطوط والأيقونات ===== -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@-11..11,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="other_file/style.css" />
+  </head>
+  <body>
+    <!-- ============================================================
+         شريط التنقل العلوي (Navbar)
+         يحتوي على: اسم المدينة، الساعة الحالية، والتاريخ
+    ============================================================ -->
+    <nav class="navbar">
+      <!-- اسم المدينة مع أيقونة الموقع -->
+      <div class="navbar__location">
+        <i class="fa-solid fa-location-dot"></i>
+        الوادي
+      </div>
+
+      <!-- الساعة الحالية (تُحدَّث بواسطة JavaScript) -->
+      <div class="navbar__clock">15:44:55</div>
+
+      <!-- التاريخ الميلادي والهجري -->
+      <div class="navbar__date">الجمعة، 22 ماي 2026 | 5 ذو الحجة 1447</div>
+    </nav>
+
+    <!-- ============================================================
+         قسم الصلاة القادمة (Next Prayer Banner)
+         يعرض: اسم الصلاة القادمة، وقتها، وعداد تنازلي حتى موعدها
+    ============================================================ -->
+    <section class="next-prayer-banner">
+      <div class="container">
+        <div class="next-prayer-banner__content">
+          <!-- الجهة اليمنى: معلومات الصلاة القادمة -->
+          <div class="next-prayer-banner__info">
+            <span class="next-prayer-banner__label">الصلاة القادمة</span>
+            <h2 class="next-prayer-banner__name">صلاة الفجر</h2>
+            <div class="next-prayer-banner__adhan-time">03:53</div>
+            <span class="next-prayer-banner__iqama-time"
+              >اقامة صلاة : 03:58</span
+            >
+          </div>
+
+          <!-- الجهة اليسرى: العداد التنازلي والصلاة التالية -->
+          <div class="next-prayer-banner__countdown-col">
+            <!-- بطاقة العداد التنازلي -->
+            <div class="countdown-card">
+              <span class="countdown-card__label">يبدأ بعد</span>
+              <div class="countdown-card__timer">11:47:12</div>
+              <span class="countdown-card__iqama-note"
+                >إقامة بعد <span class="iqamaNextTime">15</span> دقائق من
+                الاذان</span
+              >
+            </div>
+
+            <!-- بطاقة الصلاة التالية بعد القادمة -->
+            <div class="next-after-card">
+              <span class="next-after-card__name">الشروق</span>
+              <span class="next-after-card__time">05:30</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         قسم جدول مواقيت الصلوات (Prayer Times Table)
+         يعرض الصلوات الخمس + الشروق في شبكة أفقية
+         الصلاة الحالية أو القادمة تحمل كلاس "active"
+    ============================================================ -->
+    <section class="prayer-table">
+      <div class="container">
+        <!-- بطاقة صلاة الفجر (نشطة) -->
+        <div class="prayer-card prayer-card--active">
+          <h4 class="prayer-card__name">صلاة الفجر</h4>
+          <span class="prayer-card__time">03:53</span>
+          <div class="prayer-card__iqama">
+            <span>الإقامة</span>
+            <span>03:58</span>
+          </div>
+        </div>
+
+        <!-- بطاقة الشروق (بدون إقامة) -->
+        <div class="prayer-card">
+          <h4 class="prayer-card__name">الشروق</h4>
+          <span class="prayer-card__time">05:30</span>
+          <div class="prayer-card__iqama">
+            <span>وقت اتاحة الصلاة</span>
+            <span>05:35</span>
+          </div>
+        </div>
+
+        <!-- بطاقة صلاة الظهر -->
+        <div class="prayer-card">
+          <h4 class="prayer-card__name">صلاة الظهر</h4>
+          <span class="prayer-card__time">12:00</span>
+          <div class="prayer-card__iqama">
+            <span>الإقامة</span>
+            <span>13:00</span>
+          </div>
+        </div>
+
+        <!-- بطاقة صلاة العصر -->
+        <div class="prayer-card">
+          <h4 class="prayer-card__name">صلاة العصر</h4>
+          <span class="prayer-card__time">16:00</span>
+          <div class="prayer-card__iqama">
+            <span>الإقامة</span>
+            <span>17:00</span>
+          </div>
+        </div>
+
+        <!-- بطاقة صلاة المغرب -->
+        <div class="prayer-card">
+          <h4 class="prayer-card__name">صلاة المغرب</h4>
+          <span class="prayer-card__time">19:30</span>
+          <div class="prayer-card__iqama">
+            <span>الإقامة</span>
+            <span>19:35</span>
+          </div>
+        </div>
+
+        <!-- بطاقة صلاة العشاء -->
+        <div class="prayer-card">
+          <h4 class="prayer-card__name">صلاة العشاء</h4>
+          <span class="prayer-card__time">21:00</span>
+          <div class="prayer-card__iqama">
+            <span>الإقامة</span>
+            <span>21:10</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="other_file/script.js"></script>
+  </body>
+</html>

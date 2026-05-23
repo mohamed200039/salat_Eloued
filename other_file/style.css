@@ -1,0 +1,388 @@
+/* ================================================================
+   ملف التنسيق الرئيسي - مواقيت الصلاة
+   المنهجية: BEM | الاتجاه: RTL | الهدف: ملء الشاشة الكاملة
+================================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&display=swap");
+
+/* ================================================================
+   1. متغيرات اللون والحجم
+================================================================ */
+:root {
+  --bg-primary: #050e1f;
+  --bg-secondary: #091529;
+  --bg-card: #0d1f3c;
+  --bg-card-active: #0d2d5e;
+  --accent: #4db8ff;
+  --accent-glow: rgba(77, 184, 255, 0.18);
+  --accent-border: rgba(77, 184, 255, 0.25);
+  --text-primary: #ffffff;
+  --text-muted: #6a8fad;
+  --text-sub: #a0c0dc;
+  --gold: #f0c040;
+}
+
+/* ================================================================
+   2. إعادة الضبط والأساس
+================================================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* لا تمرير — الصفحة تملأ الشاشة بالكامل */
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+
+  /* نسيج خفيف يضفي عمقاً على الخلفية */
+  background-image:
+    radial-gradient(
+      ellipse 80% 50% at 50% -10%,
+      rgba(77, 184, 255, 0.07),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 80% 110%,
+      rgba(77, 184, 255, 0.05),
+      transparent
+    );
+}
+
+/* ================================================================
+   3. شريط التنقل العلوي
+================================================================ */
+.navbar {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid rgba(77, 184, 255, 0.12);
+  padding: 0 3vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+
+  height: 10vh; /* ارتفاع ثابت نسبي */
+  position: relative;
+}
+
+/* اسم المدينة + أيقونة */
+.navbar__location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(18px, 2vw, 30px);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.navbar__location svg,
+.navbar__location i {
+  color: var(--accent);
+  font-size: 1.1em;
+}
+
+/* الساعة — مُوسَّطة بالضبط */
+.navbar__clock {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(28px, 3.5vw, 56px);
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(77, 184, 255, 0.4);
+}
+
+/* التاريخ */
+.navbar__date {
+  font-size: clamp(13px, 1.4vw, 22px);
+  color: var(--text-sub);
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* ================================================================
+   4. بانر الصلاة القادمة
+   ✏️  التعديل: flex: 1 بدلاً من flex-shrink: 0
+       → يأخذ كل المساحة المتبقية بعد الجدول السفلي
+================================================================ */
+.next-prayer-banner {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid rgba(77, 184, 255, 0.1);
+  padding: 2vh 3vw;
+  flex: 1; /* ← يتمدد ليملأ المساحة المتاحة */
+  min-height: 0; /* ضروري لكي يعمل flex بشكل صحيح */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.next-prayer-banner__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2vw;
+  height: 100%;
+}
+
+/* --- معلومات الصلاة القادمة --- */
+.next-prayer-banner__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* نتحكم في المسافات عبر margin لكل عنصر على حدة */
+}
+
+.next-prayer-banner__label {
+  font-size: clamp(12px, 1.1vw, 18px);
+  color: var(--text-muted);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1.4vh; /* مسافة تحت "الصلاة القادمة" */
+}
+
+.next-prayer-banner__name {
+  font-size: clamp(28px, 3.5vw, 60px);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 2.2vh; /* مسافة واضحة بين الاسم والوقت */
+}
+
+.next-prayer-banner__adhan-time {
+  font-size: clamp(52px, 7vw, 120px);
+  font-weight: 200;
+  color: var(--accent);
+  letter-spacing: 5px;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(77, 184, 255, 0.35);
+  margin-bottom: 1.8vh; /* مسافة بين الوقت وسطر الإقامة */
+}
+
+.next-prayer-banner__iqama-time {
+  font-size: clamp(14px, 1.3vw, 22px);
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+/* --- عمود العداد --- */
+.next-prayer-banner__countdown-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  min-width: 22vw;
+}
+
+/* ================================================================
+   4.1 بطاقة العداد التنازلي
+================================================================ */
+.countdown-card {
+  background: var(--accent-glow);
+  border: 1px solid var(--accent-border);
+  border-radius: 14px;
+  padding: 1.5vh 2vw;
+  text-align: center;
+}
+
+.countdown-card__label {
+  display: block;
+  font-size: clamp(11px, 1vw, 17px);
+  color: var(--text-muted);
+  margin-bottom: 0.5vh;
+  letter-spacing: 1px;
+}
+
+.countdown-card__timer {
+  font-size: clamp(38px, 4.5vw, 80px);
+  font-weight: 300;
+  color: var(--accent);
+  letter-spacing: 4px;
+  text-shadow: 0 0 20px rgba(77, 184, 255, 0.4);
+  line-height: 1;
+}
+
+.countdown-card__iqama-note {
+  display: block;
+  font-size: clamp(12px, 1vw, 17px);
+  color: var(--text-sub);
+  margin-top: 0.6vh;
+}
+
+/* ================================================================
+   4.2 بطاقة "الصلاة بعد القادمة"
+================================================================ */
+.next-after-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 1.2vh 1.5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vw;
+}
+
+.next-after-card__name {
+  font-size: clamp(13px, 1.2vw, 20px);
+  color: var(--text-muted);
+}
+
+.next-after-card__time {
+  font-size: clamp(18px, 1.8vw, 30px);
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ================================================================
+   5. جدول مواقيت الصلوات
+   ✏️  التعديل: ارتفاع ثابت 38vh بدلاً من flex: 1
+       → يأخذ حوالي ثلث الشاشة فقط، ويترك الباقي للبانر
+================================================================ */
+.prayer-table {
+  height: 38vh; /* ← ثلاثة وثمانون بالمئة للبانر، ثلاثة وثلاثون للجدول */
+  flex-shrink: 0; /* لا يتقلص أكثر من هذا الحجم */
+  background-color: var(--bg-primary);
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.prayer-table .container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1vw;
+  padding: 1.5vh 1vw;
+  width: 100%;
+  max-width: 100%;
+  align-items: stretch;
+}
+
+/* ================================================================
+   5.1 بطاقة صلاة واحدة
+================================================================ */
+.prayer-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2.5vh 1vw;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2vh;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+  overflow: hidden;
+}
+
+/* توهج خفيف في الزاوية العليا */
+.prayer-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(77, 184, 255, 0.15),
+    transparent
+  );
+}
+
+/* اسم الصلاة */
+.prayer-card__name {
+  font-size: clamp(16px, 1.8vw, 30px);
+  color: var(--text-sub);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* وقت الصلاة — الرقم الكبير */
+.prayer-card__time {
+  font-size: clamp(36px, 4.5vw, 78px);
+  color: var(--text-primary);
+  font-weight: 300;
+  letter-spacing: 3px;
+  display: block;
+  line-height: 1;
+}
+
+/* صف الإقامة */
+.prayer-card__iqama {
+  font-size: clamp(13px, 1.3vw, 22px);
+  color: var(--text-muted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  line-height: 1;
+}
+
+.prayer-card__iqama span:nth-child(2) {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ================================================================
+   5.2 البطاقة النشطة
+================================================================ */
+.prayer-card--active {
+  background: var(--bg-card-active);
+  border-color: var(--accent-border);
+  box-shadow:
+    0 0 0 1px var(--accent-border),
+    0 0 30px rgba(77, 184, 255, 0.08),
+    inset 0 0 30px rgba(77, 184, 255, 0.04);
+}
+
+/* خط أزرق ساطع في الأسفل */
+.prayer-card--active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  right: 15%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 0 10px rgba(77, 184, 255, 0.6);
+}
+
+/* الاسم والوقت يصبحان أكثر إضاءة في البطاقة النشطة */
+.prayer-card--active .prayer-card__name {
+  color: var(--accent);
+}
+
+.prayer-card--active .prayer-card__time {
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(77, 184, 255, 0.4);
+}
+
+/* ================================================================
+   6. الحاوية العامة — تكييف نسب الارتفاع
+================================================================ */
+.container {
+  --gutter-x: 1vw;
+  width: 100%;
+  padding-right: calc(var(--gutter-x) * 0.5);
+  padding-left: calc(var(--gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}

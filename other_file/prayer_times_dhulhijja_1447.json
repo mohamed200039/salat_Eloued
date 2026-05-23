@@ -1,0 +1,389 @@
+{
+  "meta": {
+    "city": "الوادي",
+    "hijri_month": "ذو الحجة",
+    "hijri_year": 1447,
+    "gregorian_months": "ماي - جوان",
+    "gregorian_year": 2026,
+    "note": "الأوقات بصيغة HH:MM — قابلة مباشرة لـ JavaScript مثل: new Date('2026-05-18T03:56')"
+  },
+  "days": [
+    {
+      "date": "2026-05-18",
+      "day_ar": "الإثنين",
+      "hijri_day": 1,
+      "prayers": {
+        "fajr":    "03:56",
+        "sunrise": "05:32",
+        "dhuhr":   "12:30",
+        "asr":     "16:15",
+        "maghrib": "19:32",
+        "isha":    "21:01"
+      }
+    },
+    {
+      "date": "2026-05-19",
+      "day_ar": "الثلاثاء",
+      "hijri_day": 2,
+      "prayers": {
+        "fajr":    "03:56",
+        "sunrise": "05:32",
+        "dhuhr":   "12:30",
+        "asr":     "16:15",
+        "maghrib": "19:32",
+        "isha":    "21:01"
+      }
+    },
+    {
+      "date": "2026-05-20",
+      "day_ar": "الأربعاء",
+      "hijri_day": 3,
+      "prayers": {
+        "fajr":    "03:55",
+        "sunrise": "05:31",
+        "dhuhr":   "12:30",
+        "asr":     "16:15",
+        "maghrib": "19:33",
+        "isha":    "21:02"
+      }
+    },
+    {
+      "date": "2026-05-21",
+      "day_ar": "الخميس",
+      "hijri_day": 4,
+      "prayers": {
+        "fajr":    "03:54",
+        "sunrise": "05:31",
+        "dhuhr":   "12:30",
+        "asr":     "16:15",
+        "maghrib": "19:34",
+        "isha":    "21:03"
+      }
+    },
+    {
+      "date": "2026-05-22",
+      "day_ar": "الجمعة",
+      "hijri_day": 5,
+      "prayers": {
+        "fajr":    "03:53",
+        "sunrise": "05:30",
+        "dhuhr":   "12:30",
+        "asr":     "16:15",
+        "maghrib": "19:35",
+        "isha":    "21:04"
+      }
+    },
+    {
+      "date": "2026-05-23",
+      "day_ar": "السبت",
+      "hijri_day": 6,
+      "prayers": {
+        "fajr":    "03:52",
+        "sunrise": "05:30",
+        "dhuhr":   "12:30",
+        "asr":     "16:15",
+        "maghrib": "19:35",
+        "isha":    "21:05"
+      }
+    },
+    {
+      "date": "2026-05-24",
+      "day_ar": "الأحد",
+      "hijri_day": 7,
+      "prayers": {
+        "fajr":    "03:51",
+        "sunrise": "05:29",
+        "dhuhr":   "12:30",
+        "asr":     "16:15",
+        "maghrib": "19:36",
+        "isha":    "21:06"
+      }
+    },
+    {
+      "date": "2026-05-25",
+      "day_ar": "الإثنين",
+      "hijri_day": 8,
+      "prayers": {
+        "fajr":    "03:50",
+        "sunrise": "05:29",
+        "dhuhr":   "12:30",
+        "asr":     "16:15",
+        "maghrib": "19:37",
+        "isha":    "21:07"
+      }
+    },
+    {
+      "date": "2026-05-26",
+      "day_ar": "الثلاثاء",
+      "hijri_day": 9,
+      "prayers": {
+        "fajr":    "03:49",
+        "sunrise": "05:28",
+        "dhuhr":   "12:31",
+        "asr":     "16:15",
+        "maghrib": "19:37",
+        "isha":    "21:08"
+      }
+    },
+    {
+      "date": "2026-05-27",
+      "day_ar": "الأربعاء",
+      "hijri_day": 10,
+      "prayers": {
+        "fajr":    "03:49",
+        "sunrise": "05:28",
+        "dhuhr":   "12:31",
+        "asr":     "16:15",
+        "maghrib": "19:38",
+        "isha":    "21:09"
+      }
+    },
+    {
+      "date": "2026-05-28",
+      "day_ar": "الخميس",
+      "hijri_day": 11,
+      "prayers": {
+        "fajr":    "03:48",
+        "sunrise": "05:27",
+        "dhuhr":   "12:31",
+        "asr":     "16:15",
+        "maghrib": "19:39",
+        "isha":    "21:10"
+      }
+    },
+    {
+      "date": "2026-05-29",
+      "day_ar": "الجمعة",
+      "hijri_day": 12,
+      "prayers": {
+        "fajr":    "03:47",
+        "sunrise": "05:27",
+        "dhuhr":   "12:31",
+        "asr":     "16:15",
+        "maghrib": "19:39",
+        "isha":    "21:11"
+      }
+    },
+    {
+      "date": "2026-05-30",
+      "day_ar": "السبت",
+      "hijri_day": 13,
+      "prayers": {
+        "fajr":    "03:46",
+        "sunrise": "05:26",
+        "dhuhr":   "12:31",
+        "asr":     "16:16",
+        "maghrib": "19:40",
+        "isha":    "21:11"
+      }
+    },
+    {
+      "date": "2026-05-31",
+      "day_ar": "الأحد",
+      "hijri_day": 14,
+      "prayers": {
+        "fajr":    "03:46",
+        "sunrise": "05:26",
+        "dhuhr":   "12:31",
+        "asr":     "16:16",
+        "maghrib": "19:41",
+        "isha":    "21:12"
+      }
+    },
+    {
+      "date": "2026-06-01",
+      "day_ar": "الإثنين",
+      "hijri_day": 15,
+      "prayers": {
+        "fajr":    "03:45",
+        "sunrise": "05:26",
+        "dhuhr":   "12:31",
+        "asr":     "16:16",
+        "maghrib": "19:41",
+        "isha":    "21:13"
+      }
+    },
+    {
+      "date": "2026-06-02",
+      "day_ar": "الثلاثاء",
+      "hijri_day": 16,
+      "prayers": {
+        "fajr":    "03:45",
+        "sunrise": "05:25",
+        "dhuhr":   "12:32",
+        "asr":     "16:16",
+        "maghrib": "19:42",
+        "isha":    "21:14"
+      }
+    },
+    {
+      "date": "2026-06-03",
+      "day_ar": "الأربعاء",
+      "hijri_day": 17,
+      "prayers": {
+        "fajr":    "03:44",
+        "sunrise": "05:25",
+        "dhuhr":   "12:32",
+        "asr":     "16:16",
+        "maghrib": "19:42",
+        "isha":    "21:15"
+      }
+    },
+    {
+      "date": "2026-06-04",
+      "day_ar": "الخميس",
+      "hijri_day": 18,
+      "prayers": {
+        "fajr":    "03:44",
+        "sunrise": "05:25",
+        "dhuhr":   "12:32",
+        "asr":     "16:17",
+        "maghrib": "19:43",
+        "isha":    "21:16"
+      }
+    },
+    {
+      "date": "2026-06-05",
+      "day_ar": "الجمعة",
+      "hijri_day": 19,
+      "prayers": {
+        "fajr":    "03:43",
+        "sunrise": "05:25",
+        "dhuhr":   "12:32",
+        "asr":     "16:17",
+        "maghrib": "19:44",
+        "isha":    "21:16"
+      }
+    },
+    {
+      "date": "2026-06-06",
+      "day_ar": "السبت",
+      "hijri_day": 20,
+      "prayers": {
+        "fajr":    "03:43",
+        "sunrise": "05:24",
+        "dhuhr":   "12:32",
+        "asr":     "16:17",
+        "maghrib": "19:44",
+        "isha":    "21:17"
+      }
+    },
+    {
+      "date": "2026-06-07",
+      "day_ar": "الأحد",
+      "hijri_day": 21,
+      "prayers": {
+        "fajr":    "03:43",
+        "sunrise": "05:24",
+        "dhuhr":   "12:32",
+        "asr":     "16:17",
+        "maghrib": "19:45",
+        "isha":    "21:18"
+      }
+    },
+    {
+      "date": "2026-06-08",
+      "day_ar": "الإثنين",
+      "hijri_day": 22,
+      "prayers": {
+        "fajr":    "03:42",
+        "sunrise": "05:24",
+        "dhuhr":   "12:33",
+        "asr":     "16:17",
+        "maghrib": "19:45",
+        "isha":    "21:18"
+      }
+    },
+    {
+      "date": "2026-06-09",
+      "day_ar": "الثلاثاء",
+      "hijri_day": 23,
+      "prayers": {
+        "fajr":    "03:42",
+        "sunrise": "05:24",
+        "dhuhr":   "12:33",
+        "asr":     "16:17",
+        "maghrib": "19:46",
+        "isha":    "21:19"
+      }
+    },
+    {
+      "date": "2026-06-10",
+      "day_ar": "الأربعاء",
+      "hijri_day": 24,
+      "prayers": {
+        "fajr":    "03:42",
+        "sunrise": "05:24",
+        "dhuhr":   "12:33",
+        "asr":     "16:18",
+        "maghrib": "19:46",
+        "isha":    "21:20"
+      }
+    },
+    {
+      "date": "2026-06-11",
+      "day_ar": "الخميس",
+      "hijri_day": 25,
+      "prayers": {
+        "fajr":    "03:41",
+        "sunrise": "05:24",
+        "dhuhr":   "12:33",
+        "asr":     "16:18",
+        "maghrib": "19:46",
+        "isha":    "21:20"
+      }
+    },
+    {
+      "date": "2026-06-12",
+      "day_ar": "الجمعة",
+      "hijri_day": 26,
+      "prayers": {
+        "fajr":    "03:41",
+        "sunrise": "05:24",
+        "dhuhr":   "12:33",
+        "asr":     "16:18",
+        "maghrib": "19:47",
+        "isha":    "21:21"
+      }
+    },
+    {
+      "date": "2026-06-13",
+      "day_ar": "السبت",
+      "hijri_day": 27,
+      "prayers": {
+        "fajr":    "03:41",
+        "sunrise": "05:24",
+        "dhuhr":   "12:34",
+        "asr":     "16:18",
+        "maghrib": "19:47",
+        "isha":    "21:21"
+      }
+    },
+    {
+      "date": "2026-06-14",
+      "day_ar": "الأحد",
+      "hijri_day": 28,
+      "prayers": {
+        "fajr":    "03:41",
+        "sunrise": "05:24",
+        "dhuhr":   "12:34",
+        "asr":     "16:19",
+        "maghrib": "19:48",
+        "isha":    "21:22"
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "day_ar": "الإثنين",
+      "hijri_day": 29,
+      "prayers": {
+        "fajr":    "03:41",
+        "sunrise": "05:24",
+        "dhuhr":   "12:34",
+        "asr":     "16:19",
+        "maghrib": "19:48",
+        "isha":    "21:22"
+      }
+    }
+  ]
+}
