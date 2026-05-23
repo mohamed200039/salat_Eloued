@@ -397,11 +397,34 @@ body {
 ================================================================ */
 
 /* ---------------------------------------------------------------
-   7.1  لوحي عريض  (≤ 1024px)
+   7.0  شاشات كبيرة وتلفاز  (≥ 1025px)
+   - نفرض 6 أعمدة دائماً حتى لو أبلغ المتصفح عن viewport أصغر
+   - هذا يحل مشكلة التلفاز الذي يُقلّص الـ viewport بسبب الـ zoom
+--------------------------------------------------------------- */
+@media (min-width: 1025px) {
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .prayer-table {
+    height: 38vh;
+    flex-shrink: 0;
+  }
+
+  .prayer-table .container {
+    grid-template-columns: repeat(6, 1fr) !important;
+    grid-template-rows: unset;
+  }
+}
+
+/* ---------------------------------------------------------------
+   7.1  لوحي عريض  (768px → 1024px)
    - الجدول يتحول من 6 أعمدة إلى 3×2
    - تقليل خفيف في الأحجام
 --------------------------------------------------------------- */
-@media (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .prayer-table .container {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
