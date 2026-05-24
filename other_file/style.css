@@ -115,18 +115,12 @@ body {
 
 /* ================================================================
    4. بانر الصلاة القادمة
-   ✏️  التعديل: flex: 1 بدلاً من flex-shrink: 0
-       → يأخذ كل المساحة المتبقية بعد الجدول السفلي
 ================================================================ */
 .next-prayer-banner {
   background-color: var(--bg-secondary);
   border-bottom: 1px solid rgba(77, 184, 255, 0.1);
   padding: 2vh 3vw;
-  flex: 1; /* ← يتمدد ليملأ المساحة المتاحة */
-  min-height: 0; /* ضروري لكي يعمل flex بشكل صحيح */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-shrink: 0;
 }
 
 .next-prayer-banner__content {
@@ -141,15 +135,14 @@ body {
 .next-prayer-banner__info {
   display: flex;
   flex-direction: column;
-  gap: 0; /* نتحكم في المسافات عبر margin لكل عنصر على حدة */
+  gap: 0.4vh;
 }
 
 .next-prayer-banner__label {
   font-size: clamp(12px, 1.1vw, 18px);
   color: var(--text-muted);
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 1.4vh; /* مسافة تحت "الصلاة القادمة" */
 }
 
 .next-prayer-banner__name {
@@ -157,7 +150,6 @@ body {
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1;
-  margin-bottom: 2.2vh; /* مسافة واضحة بين الاسم والوقت */
 }
 
 .next-prayer-banner__adhan-time {
@@ -167,7 +159,6 @@ body {
   letter-spacing: 5px;
   line-height: 1;
   text-shadow: 0 0 30px rgba(77, 184, 255, 0.35);
-  margin-bottom: 1.8vh; /* مسافة بين الوقت وسطر الإقامة */
 }
 
 .next-prayer-banner__iqama-time {
@@ -247,12 +238,9 @@ body {
 
 /* ================================================================
    5. جدول مواقيت الصلوات
-   ✏️  التعديل: ارتفاع ثابت 38vh بدلاً من flex: 1
-       → يأخذ حوالي ثلث الشاشة فقط، ويترك الباقي للبانر
 ================================================================ */
 .prayer-table {
-  height: 38vh; /* ← ثلاثة وثمانون بالمئة للبانر، ثلاثة وثلاثون للجدول */
-  flex-shrink: 0; /* لا يتقلص أكثر من هذا الحجم */
+  flex: 1; /* يأخذ المساحة المتبقية من الشاشة */
   background-color: var(--bg-primary);
   display: flex;
   align-items: stretch;
@@ -385,285 +373,4 @@ body {
   padding-left: calc(var(--gutter-x) * 0.5);
   margin-right: auto;
   margin-left: auto;
-}
-
-/* ================================================================
-   7. استجابة الشاشات — Responsive Breakpoints
-   ┌──────────────────────────────────────────┐
-   │  ≤ 1024px  →  لوحي عريض                 │
-   │  ≤ 768px   →  لوحي / هاتف أفقي          │
-   │  ≤ 480px   →  هاتف عمودي                │
-   └──────────────────────────────────────────┘
-================================================================ */
-
-/* ---------------------------------------------------------------
-   7.0  شاشات كبيرة وتلفاز  (≥ 1025px)
-   - نفرض 6 أعمدة دائماً حتى لو أبلغ المتصفح عن viewport أصغر
-   - هذا يحل مشكلة التلفاز الذي يُقلّص الـ viewport بسبب الـ zoom
---------------------------------------------------------------- */
-@media (min-width: 1025px) {
-  html,
-  body {
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .prayer-table {
-    height: 38vh;
-    flex-shrink: 0;
-  }
-
-  .prayer-table .container {
-    grid-template-columns: repeat(6, 1fr) !important;
-    grid-template-rows: unset;
-  }
-}
-
-/* ---------------------------------------------------------------
-   7.1  لوحي عريض  (768px → 1024px)
-   - الجدول يتحول من 6 أعمدة إلى 3×2
-   - تقليل خفيف في الأحجام
---------------------------------------------------------------- */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .prayer-table .container {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 1.2vw;
-  }
-
-  .prayer-card__time {
-    font-size: clamp(26px, 4.5vw, 50px);
-  }
-
-  .next-prayer-banner__adhan-time {
-    font-size: clamp(48px, 6vw, 90px);
-  }
-
-  .countdown-card__timer {
-    font-size: clamp(32px, 4vw, 60px);
-  }
-}
-
-/* ---------------------------------------------------------------
-   7.2  لوحي / هاتف أفقي  (≤ 768px)
-   - الـ body يصبح قابلاً للتمرير
-   - الـ navbar يُعاد ترتيبه في صفّين
-   - بانر الصلاة القادمة يتكدّس عمودياً
-   - عداد التنازل يتحول إلى صف أفقي
---------------------------------------------------------------- */
-@media (max-width: 768px) {
-  /* السماح بالتمرير على الشاشات الصغيرة */
-  html,
-  body {
-    height: auto;
-    min-height: 100svh;
-    overflow: auto;
-  }
-
-  /* ── الشريط العلوي ── */
-  .navbar {
-    height: auto;
-    padding: 10px 4vw 12px;
-    flex-wrap: wrap;
-    gap: 6px;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  /* الساعة تنتقل من absolute إلى صف مستقل في المنتصف */
-  .navbar__clock {
-    position: static;
-    transform: none;
-    order: -1; /* تظهر أولاً */
-    width: 100%;
-    text-align: center;
-    font-size: clamp(26px, 7vw, 42px);
-    letter-spacing: 3px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid rgba(77, 184, 255, 0.1);
-    margin-bottom: 4px;
-  }
-
-  .navbar__location {
-    font-size: clamp(14px, 4vw, 20px);
-    gap: 6px;
-  }
-
-  .navbar__date {
-    font-size: clamp(11px, 3vw, 15px);
-    text-align: right;
-  }
-
-  /* ── بانر الصلاة القادمة ── */
-  .next-prayer-banner {
-    flex: none;
-    padding: 3vh 5vw;
-  }
-
-  .next-prayer-banner__content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2.5vh;
-    height: auto;
-  }
-
-  .next-prayer-banner__label {
-    font-size: clamp(11px, 3vw, 15px);
-    margin-bottom: 1vh;
-  }
-
-  .next-prayer-banner__name {
-    font-size: clamp(24px, 6vw, 42px);
-    margin-bottom: 1.2vh;
-  }
-
-  .next-prayer-banner__adhan-time {
-    font-size: clamp(44px, 11vw, 72px);
-    letter-spacing: 4px;
-    margin-bottom: 1vh;
-  }
-
-  .next-prayer-banner__iqama-time {
-    font-size: clamp(13px, 3.5vw, 18px);
-  }
-
-  /* عمود العداد يصبح صفاً أفقياً */
-  .next-prayer-banner__countdown-col {
-    min-width: 100%;
-    flex-direction: row;
-    gap: 3vw;
-  }
-
-  .countdown-card {
-    flex: 1;
-    padding: 1.5vh 3vw;
-  }
-
-  .countdown-card__timer {
-    font-size: clamp(28px, 7vw, 50px);
-    letter-spacing: 2px;
-  }
-
-  .countdown-card__label,
-  .countdown-card__iqama-note {
-    font-size: clamp(10px, 2.5vw, 14px);
-  }
-
-  .next-after-card {
-    padding: 1.2vh 3vw;
-  }
-
-  .next-after-card__name {
-    font-size: clamp(12px, 3vw, 16px);
-  }
-  .next-after-card__time {
-    font-size: clamp(16px, 4vw, 22px);
-  }
-
-  /* ── جدول المواقيت ── */
-  .prayer-table {
-    height: auto;
-    flex-shrink: 1;
-  }
-
-  .prayer-table .container {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
-    padding: 12px;
-  }
-
-  .prayer-card {
-    border-radius: 12px;
-    padding: 2vh 2vw;
-    gap: 0.8vh;
-  }
-
-  .prayer-card__name {
-    font-size: clamp(13px, 3.2vw, 20px);
-  }
-
-  .prayer-card__time {
-    font-size: clamp(20px, 5vw, 38px);
-    letter-spacing: 2px;
-  }
-
-  .prayer-card__iqama {
-    font-size: clamp(11px, 2.8vw, 16px);
-  }
-}
-
-/* ---------------------------------------------------------------
-   7.3  هاتف عمودي  (≤ 480px)
-   - الجدول يتحول إلى عمودَين فقط
-   - تقليص إضافي في الخطوط
---------------------------------------------------------------- */
-@media (max-width: 480px) {
-  .navbar {
-    padding: 8px 16px 10px;
-  }
-
-  .navbar__clock {
-    font-size: clamp(22px, 8vw, 34px);
-    letter-spacing: 2px;
-  }
-
-  .navbar__location {
-    font-size: 14px;
-  }
-  .navbar__date {
-    font-size: 11px;
-  }
-
-  /* ── بانر ── */
-  .next-prayer-banner {
-    padding: 2.5vh 4vw;
-  }
-
-  .next-prayer-banner__name {
-    font-size: clamp(20px, 7vw, 32px);
-    margin-bottom: 1vh;
-  }
-
-  .next-prayer-banner__adhan-time {
-    font-size: clamp(34px, 10vw, 52px);
-    letter-spacing: 2px;
-    margin-bottom: 0.8vh;
-  }
-
-  /* العداد: حجم أصغر على الهاتف */
-  .next-prayer-banner__countdown-col {
-    gap: 10px;
-  }
-
-  .countdown-card__timer {
-    font-size: clamp(24px, 8vw, 40px);
-  }
-
-  /* ── الجدول: عمودان فقط ── */
-  .prayer-table .container {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 8px;
-    padding: 10px;
-  }
-
-  .prayer-card {
-    border-radius: 10px;
-    padding: 14px 10px;
-    gap: 6px;
-  }
-
-  .prayer-card__name {
-    font-size: clamp(13px, 4vw, 18px);
-  }
-
-  .prayer-card__time {
-    font-size: clamp(22px, 7vw, 36px);
-    letter-spacing: 1px;
-  }
-
-  .prayer-card__iqama {
-    font-size: clamp(10px, 3vw, 14px);
-  }
 }
